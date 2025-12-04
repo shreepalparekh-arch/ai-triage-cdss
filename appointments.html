@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lifecare Hospital – Book Appointment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-8vzZ9V3R7XyL0Dm8+k7Xz+2pW5VI4yF6vMLl3wHz5cH7A9m0nDVxtku8F+WbhcHkCe+GQyGQ4b2cc1Uo5fPzMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-title">Lifecare Hospital</div>
+          <div class="brand-tagline">Advanced Multispeciality • AI‑enabled triage</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Departments</a>
+        <a href="index.html#doctors">Doctors</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="index.html#ai-demo">AI Triage Demo</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero-light">
+    <div class="section-header">
+      <h2>Book an appointment at Lifecare Hospital</h2>
+      <p>
+        Share a few details and our team will reach out to confirm your slot by call or
+        SMS. For life‑threatening symptoms, please use the emergency department instead of
+        this form.
+      </p>
+    </div>
+    <div class="appointment-layout">
+      <form class="appt-form">
+        <div class="form-row">
+          <label>Visit type</label>
+          <div class="chip-row">
+            <button type="button" class="chip selected">In‑person</button>
+            <button type="button" class="chip">Video consult</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="specialty">Speciality</label>
+          <select id="specialty" required>
+            <option value="">Select speciality</option>
+            <option>Cardiology</option>
+            <option>Emergency Medicine</option>
+            <option>Orthopaedics</option>
+            <option>Internal Medicine</option>
+            <option>Obstetrics & Gynaecology</option>
+            <option>Paediatrics</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="doctor">Preferred doctor (optional)</label>
+          <select id="doctor">
+            <option value="">Any suitable doctor</option>
+            <option>Dr. A. Consultant</option>
+            <option>Dr. B. Specialist</option>
+            <option>Dr. C. Expert</option>
+            <option>Dr. D. Consultant</option>
+          </select>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" required />
+          </div>
+          <div class="form-row">
+            <label for="time">Preferred time</label>
+            <input type="time" id="time" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="name">Patient name</label>
+          <input type="text" id="name" placeholder="Full name" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="phone">Mobile number</label>
+            <input type="tel" id="phone" placeholder="+91‑XXXXXXXXXX" required />
+          </div>
+          <div class="form-row">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="0" max="120" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="concern">Brief concern</label>
+          <textarea id="concern" rows="3" placeholder="E.g. chest discomfort since 2 days, diabetes follow‑up, knee pain…"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary-wide">
+          <i class="ri-calendar-check-line"></i> Submit appointment request
+        </button>
+        <p class="form-note">
+          You will receive a confirmation call/SMS from the Lifecare team. If your
+          symptoms suddenly worsen, please contact emergency services immediately.
+        </p>
+      </form>
+
+      <aside class="appt-info">
+        <h3>Need help choosing a department?</h3>
+        <p>
+          Open the Lifecare Assistant to describe your symptoms. The demo assistant can
+          suggest a possible speciality and encourage urgent care if there are worrying
+          signs.
+        </p>
+        <button class="btn-outline" onclick="openChatbot()">
+          Talk to Lifecare Assistant
+        </button>
+        <div class="info-box">
+          <h4>Emergency contacts</h4>
+          <p><strong>Emergency & ambulance:</strong> 108 / local emergency number</p>
+          <p><strong>Lifecare Hospital ER desk:</strong> +91‑XXXXXXXXXX</p>
+          <p class="small">
+            These numbers are placeholders for the academic project. Replace them with
+            actual contacts only in a real deployment.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Lifecare Hospital · Educational prototype only · Not for real medical use.</p>
+  </footer>
+
+  <!-- CHATBOT SHARED UI -->
+  <button class="chat-fab" onclick="openChatbot()">
+    <i class="ri-message-3-line"></i>
+  </button>
+
+  <div id="chatbot-overlay" class="chat-overlay" onclick="overlayClick(event)">
+    <div class="chat-popup">
+      <header class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-avatar">
+            <i class="ri-robot-2-line"></i>
+          </div>
+          <div>
+            <h3>Lifecare Assistant</h3>
+            <p>Symptom triage & hospital help · Demo only.</p>
+          </div>
+        </div>
+        <button class="chat-close" onclick="closeChatbot()">
+          <i class="ri-close-line"></i>
+        </button>
+      </header>
+      <main class="chat-main">
+        <section class="chat-pane">
+          <div id="chat-messages" class="chat-messages"></div>
+          <div id="quick-replies" class="quick-replies"></div>
+          <div class="chat-input-row">
+            <input id="user-input" type="text" placeholder="Type your answer or question..." />
+            <button id="send-btn"><i class="ri-send-plane-2-line"></i></button>
+          </div>
+        </section>
+        <aside class="summary-pane">
+          <h4>Triage summary</h4>
+          <div class="summary-chip-row">
+            <span id="summary-risk" class="risk-chip risk-none">Risk: –</span>
+            <span id="summary-step" class="step-chip">Step 1 of 4</span>
+          </div>
+          <div class="summary-card">
+            <h5>Patient profile</h5>
+            <ul>
+              <li><strong>Age group:</strong> <span id="sum-age">–</span></li>
+              <li><strong>Main complaint:</strong> <span id="sum-complaint">–</span></li>
+              <li><strong>Red‑flag symptoms:</strong> <span id="sum-redflags">–</span></li>
+              <li><strong>Severity:</strong> <span id="sum-severity">–</span></li>
+            </ul>
+          </div>
+          <div class="summary-card">
+            <h5>Lifecare insight (demo)</h5>
+            <p id="summary-category">Possible category: –</p>
+            <p id="summary-next">Complete the questions to see a suggested next step.</p>
+            <p class="disclaimer-text">
+              For any real emergency, contact Lifecare Emergency or your nearest hospital
+              immediately. This assistant cannot diagnose, treat, or handle emergencies.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script src="lifecare-chatbot.js"></script>
+</body>
+</html>
