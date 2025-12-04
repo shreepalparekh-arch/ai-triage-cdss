@@ -110,8 +110,8 @@ function startConversation() {
   };
 
   addMessage('Welcome to Lifecare Assistant.');
-  addMessage('This is an educational chatbot for Lifecare Hospital, focused on clinical decision support and diagnosis demonstrations.');
-  addMessage('I can either run a symptom triage demo or answer questions about Lifecare Hospital and clinical services.');
+  addMessage('This educational chatbot focuses on diagnosis and clinical decision support at Lifecare Hospital.');
+  addMessage('I can run a symptom triage demo or answer questions about Lifecare and our clinical support services.');
   addMessage('Please choose how you want to start:');
   setQuickReplies([
     { label: 'Symptom triage', value: 'mode_triage' },
@@ -128,7 +128,6 @@ function handleUserInput(raw, fromQuick = false) {
 
   const lower = text.toLowerCase();
 
-  // show user message if typed manually
   if (!fromQuick) {
     addMessage(text, 'user');
   }
@@ -143,7 +142,7 @@ function handleUserInput(raw, fromQuick = false) {
     return;
   }
 
-  // If user directly types "triage" or "question"
+  // If user types mode keywords directly
   if (state.step === 1 && (lower.includes('triage') || lower.includes('symptom'))) {
     startTriageFlow();
     return;
@@ -153,47 +152,42 @@ function handleUserInput(raw, fromQuick = false) {
     return;
   }
 
-  // FAQ mode: always open
+  // FAQ mode
   if (state.mode === 'faq' && state.step >= 10) {
     answerFaq(lower);
     return;
   }
 
-  // ===== TRIAGE STEPS =====
+  // TRIAGE FLOW
   if (state.mode === 'triage') {
-    // Step 2: age
     if (state.step === 2) {
       handleAgeStep(lower);
       return;
     }
-    // Step 3: main complaint
     if (state.step === 3) {
       handleComplaintStep(text, lower);
       return;
     }
-    // Step 4: red flags
     if (state.step === 4) {
       handleRedFlagStep(lower);
       return;
     }
-    // Step 5: severity
     if (state.step === 5) {
       handleSeverityStep(lower);
       return;
     }
   }
 
-  // safety fallback: if in unknown state, go to FAQ
   if (state.step === 0) {
     startConversation();
   }
 }
 
-// ===== TRIAGE FLOW HELPERS =====
+// ===== TRIAGE HELPERS =====
 function startTriageFlow() {
   state.mode = 'triage';
   state.step = 2;
-  addMessage('Okay, let us run a brief symptom triage simulation.');
+  addMessage('Okay, let us run a brief symptom triage demo.');
   addMessage('Select your age group: child, adult, or older adult.');
   setQuickReplies([
     { label: 'Child', value: 'child' },
@@ -294,8 +288,8 @@ function handleSeverityStep(lower) {
   state.step = 6;
   updateStepLabel();
 
-  addMessage('This triage summary is only a demo and cannot be used for diagnosis or treatment.');
-  addMessage('You can now continue asking general questions about Lifecare Hospital or type "start triage" to simulate another case.');
+  addMessage('This triage summary is a demo and cannot be used for diagnosis or treatment.');
+  addMessage('You can now ask general questions about Lifecare or type "start triage" to simulate another case.');
   state.mode = 'faq';
   state.step = 10;
   stepEl.textContent = 'Info mode';
@@ -357,9 +351,9 @@ function computeTriageResult() {
 function startFaqFlow() {
   state.mode = 'faq';
   state.step = 10;
-  resetSummary(); // triage summary not relevant here
+  resetSummary();
   stepEl.textContent = 'Info mode';
-  addMessage('Great, you can ask questions about Lifecare Hospital, departments, timings, or AI‑based clinical decision support.');
+  addMessage('Great, you can ask about Lifecare services, diagnosis support, departments, timings, or AI Clinical Decision Support.');
   addMessage('Examples: "Which department for chest pain?", "What is clinical decision support?", "How does AI help diagnosis?"');
   setQuickReplies([
     { label: 'What is CDSS?', value: 'what is clinical decision support' },
@@ -369,38 +363,34 @@ function startFaqFlow() {
 }
 
 function answerFaq(lower) {
-  // general greetings
   if (/(hi|hello|hey)\b/.test(lower)) {
-    addMessage('Hello from Lifecare Hospital. You can ask about services, appointments, or run a symptom triage demo.');
+    addMessage('Hello from Lifecare Hospital. You can ask about services, appointments, departments, or run a symptom triage demo.');
     return;
   }
 
-  // explain clinical decision support
   if (lower.includes('clinical decision support') || lower.includes('cdss')) {
     addMessage(
-      'Clinical Decision Support Systems (CDSS) are digital tools that help clinicians make safer, faster decisions by combining guidelines, patient data, and risk models.'
+      'Clinical Decision Support Systems (CDSS) are tools that combine patient data, guidelines, and risk models to help clinicians make safer, more consistent decisions.'
     );
     addMessage(
-      'At Lifecare (demo), CDSS concepts are used for triage risk scoring, red‑flag alerts, and diagnosis support suggestions, while the final decision always belongs to the clinician.'
+      'At Lifecare (demo), CDSS concepts power triage risk scoring, red‑flag alerts, and likely diagnosis suggestions, with clinicians always making the final call.'
     );
     return;
   }
 
-  // AI in diagnosis / triage
   if (lower.includes('ai') && (lower.includes('diagnosis') || lower.includes('triage') || lower.includes('support'))) {
     addMessage(
-      'AI models can spot patterns in symptoms, vitals, and lab data to highlight which patients may be high‑risk, suggest possible diagnoses, and reduce errors.'
+      'AI can recognise patterns across symptoms, vitals, labs, and imaging to highlight high‑risk patients and narrow down possible diagnoses.'
     );
     addMessage(
-      'In this demo, AI triage logic estimates a risk band and category for your symptoms to illustrate how such tools could support Lifecare doctors.'
+      'Our demo assistant shows how such AI could support Lifecare doctors by estimating risk bands and broad diagnostic categories.'
     );
     return;
   }
 
-  // departments
   if (lower.includes('department') || lower.includes('speciality') || lower.includes('specialty')) {
     addMessage(
-      'Key departments at Lifecare Hospital include Cardiology, Emergency Medicine, Orthopaedics, Internal Medicine, Women & Child Health, and Diagnostics.'
+      'Key departments at Lifecare include Emergency Medicine, Internal Medicine, Cardiology, Orthopaedics, Women & Child Health, and Diagnostics.'
     );
     addMessage(
       'For emergency symptoms like chest pain or severe breathlessness, Emergency Medicine and Cardiology are usually involved.'
@@ -408,54 +398,48 @@ function answerFaq(lower) {
     return;
   }
 
-  // chest pain specific
   if (lower.includes('chest pain')) {
     addMessage(
-      'Chest pain can be serious, especially if it is sudden, heavy, or associated with sweating, breathlessness, or pain in jaw/arm.'
+      'Chest pain, especially if sudden, heavy, or associated with breathlessness or sweating, is considered high‑risk.'
     );
     addMessage(
-      'In real life you should go straight to the emergency department. The Lifecare triage demo can only illustrate how clinicians might prioritise such cases.'
+      'In real life, you should go straight to an emergency department. The Lifecare triage demo only illustrates how clinicians might prioritise such cases.'
     );
     return;
   }
 
-  // appointments
   if (lower.includes('appointment') || lower.includes('book') || lower.includes('booking')) {
     addMessage(
-      'You can request a slot via the Appointment page form. In a real system this would go directly to the scheduling team at Lifecare Hospital.'
+      'You can request a slot through the Appointment page form. In a real hospital, this would securely notify the scheduling team.'
     );
-    addMessage('Click "Appointments" in the top menu or use the big button on the home page to open the form.');
+    addMessage('Use the “Appointments” link in the top menu to open the booking form.');
     return;
   }
 
-  // visiting hours
   if (lower.includes('visiting') || lower.includes('visit hours') || lower.includes('timings')) {
     addMessage(
       'Typical visiting hours include fixed morning and evening slots, with flexible ICU policies depending on the patient’s condition.'
     );
     addMessage(
-      'Because this is an academic demo, the exact timings are placeholders rather than live operational data.'
+      'Because this is an academic demo, these timings are illustrative placeholders rather than live operational data.'
     );
     return;
   }
 
-  // location
   if (lower.includes('where') && lower.includes('located') || lower.includes('location') || lower.includes('address')) {
     addMessage(
-      'Lifecare Hospital in this project is a fictional teaching hospital used to demonstrate clinical decision support and AI‑enabled diagnosis concepts.'
+      'Lifecare Hospital here is a fictional teaching hospital created to demonstrate diagnosis and clinical decision support concepts.'
     );
-    addMessage('On a real site, this section would show maps, routes, and contact numbers for emergency access.');
+    addMessage('On a real site, you would see maps, routes, and verified contact numbers.');
     return;
   }
 
-  // restart triage
   if (lower.includes('start triage') || lower.includes('symptom triage')) {
     resetSummary();
     startTriageFlow();
     return;
   }
 
-  // default fallback
   addMessage(
     'Thank you for your question. I can help with topics like departments, appointments, visiting hours, and AI‑based clinical decision support.'
   );
