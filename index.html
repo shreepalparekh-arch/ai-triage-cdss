@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Clinical Decision Support – Triage & Diagnosis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Simple navigation -->
+  <header>
+    <h1>AI-based Clinical Decision Support for Triage & Diagnosis</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#how">How It Works</a>
+      <a href="#chatbot">Triage Chatbot</a>
+      <a href="#tech">Technology</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="section">
+    <h2>Reducing Diagnostic Errors and Triage Delays</h2>
+    <p>
+      This educational prototype demonstrates how AI-powered Clinical Decision Support Systems
+      can help clinicians triage patients faster, detect red flags, and standardize diagnosis decisions.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h3>Diagnostic Risk</h3>
+        <p>Diagnostic mistakes contribute significantly to hospital deaths and adverse events worldwide.</p>
+      </div>
+      <div class="card">
+        <h3>Emergency Overcrowding</h3>
+        <p>Emergency departments in many regions operate far above recommended capacity.</p>
+      </div>
+      <div class="card">
+        <h3>Cognitive Overload</h3>
+        <p>Clinicians must make fast decisions with limited time and fragmented data.</p>
+      </div>
+    </div>
+    <button onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});">
+      Try Triage Chatbot
+    </button>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section">
+    <h2>How Triage & Diagnosis Work</h2>
+    <div class="timeline">
+      <div class="step">
+        <h3>Triage</h3>
+        <p>Initial assessment, vital signs, and red-flag screening to assign a risk level.</p>
+      </div>
+      <div class="step">
+        <h3>Diagnostic Evaluation</h3>
+        <p>History, physical examination, and investigations to narrow down likely conditions.</p>
+      </div>
+      <div class="step">
+        <h3>Clinical Decision</h3>
+        <p>Prioritizing high-risk patients and selecting an evidence-based management plan.</p>
+      </div>
+    </div>
+    <p class="note">
+      AI-CDSS supports each stage by analysing multiple data points and highlighting patterns, but the final decision always remains with clinicians.
+    </p>
+  </section>
+
+  <!-- CHATBOT -->
+  <section id="chatbot" class="section">
+    <h2>AI Triage Assistant (Demo)</h2>
+    <p class="disclaimer">
+      Educational simulator only – not real medical advice. For any health concern, always consult a qualified clinician.
+    </p>
+    <div class="chat-layout">
+      <!-- Chat window -->
+      <div class="chat-window">
+        <div id="chat-messages" class="chat-messages">
+          <!-- Messages will be appended here -->
+        </div>
+        <div class="chat-input">
+          <input type="text" id="user-input" placeholder="Describe your symptoms or answer the question..." />
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+
+      <!-- Summary panel -->
+      <aside class="summary-panel">
+        <h3>AI Triage Summary</h3>
+        <p><strong>Risk Level:</strong> <span id="risk-level">–</span></p>
+        <p><strong>Possible Category:</strong> <span id="category">–</span></p>
+        <p><strong>Suggested Next Step:</strong></p>
+        <p id="next-step">Answer the questions in the chat to see a triage summary.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="tech" class="section">
+    <h2>AI Technologies Used</h2>
+    <p>
+      In a real deployment, AI-CDSS would combine multiple techniques to support clinicians in triage and diagnosis.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>AI Technique</th>
+          <th>Role</th>
+          <th>Example Benefit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Machine learning</td>
+          <td>Triage risk scoring and outcome prediction</td>
+          <td>More accurate prioritization of high-risk patients.</td>
+        </tr>
+        <tr>
+          <td>Natural language processing</td>
+          <td>Understanding free-text symptom descriptions and notes</td>
+          <td>Less manual documentation, more clinician time with patients.</td>
+        </tr>
+        <tr>
+          <td>Predictive analytics</td>
+          <td>Early detection of deterioration (e.g., sepsis risk)</td>
+          <td>Earlier intervention and improved safety.</td>
+        </tr>
+        <tr>
+          <td>Computer vision</td>
+          <td>Analysing medical images (X-ray, CT, MRI)</td>
+          <td>Assisting radiologists in spotting subtle abnormalities.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>About This Project</h2>
+    <p>
+      This website is part of an academic group assignment on using AI-based Clinical Decision Support
+      to enhance patient triage and diagnosis in hospitals.
+    </p>
+    <p>
+      Section 1 of the report is reflected in the Home and How It Works sections. The process map (Section 2)
+      can be embedded as an image here or in an additional section. Section 3 is represented by the Technology area.
+    </p>
+    <p>
+      Group Members: Add your names and student IDs here as required by the assignment guidelines.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 AI Clinical Decision Support – Academic Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
