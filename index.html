@@ -1,159 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Clinical Decision Support – Triage & Diagnosis</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>AI Triage & Diagnosis CDSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-8vzZ9V3R7XyL0Dm8+k7Xz+2pW5VI4yF6vMLl3wHz5cH7A9m0nDVxtku8F+WbhcHkCe+GQyGQ4b2cc1Uo5fPzMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <!-- Simple navigation -->
-  <header>
-    <h1>AI-based Clinical Decision Support for Triage & Diagnosis</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#how">How It Works</a>
-      <a href="#chatbot">Triage Chatbot</a>
-      <a href="#tech">Technology</a>
-      <a href="#about">About</a>
-    </nav>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-title">AICare Triage CDSS</div>
+          <div class="brand-tagline">AI-powered clinical decision support</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#technology">Technology</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- HOME -->
-  <section id="home" class="section">
-    <h2>Reducing Diagnostic Errors and Triage Delays</h2>
-    <p>
-      This educational prototype demonstrates how AI-powered Clinical Decision Support Systems
-      can help clinicians triage patients faster, detect red flags, and standardize diagnosis decisions.
-    </p>
-    <div class="cards">
-      <div class="card">
-        <h3>Diagnostic Risk</h3>
-        <p>Diagnostic mistakes contribute significantly to hospital deaths and adverse events worldwide.</p>
-      </div>
-      <div class="card">
-        <h3>Emergency Overcrowding</h3>
-        <p>Emergency departments in many regions operate far above recommended capacity.</p>
-      </div>
-      <div class="card">
-        <h3>Cognitive Overload</h3>
-        <p>Clinicians must make fast decisions with limited time and fragmented data.</p>
-      </div>
-    </div>
-    <button onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'});">
-      Try Triage Chatbot
-    </button>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="section">
-    <h2>How Triage & Diagnosis Work</h2>
-    <div class="timeline">
-      <div class="step">
-        <h3>Triage</h3>
-        <p>Initial assessment, vital signs, and red-flag screening to assign a risk level.</p>
-      </div>
-      <div class="step">
-        <h3>Diagnostic Evaluation</h3>
-        <p>History, physical examination, and investigations to narrow down likely conditions.</p>
-      </div>
-      <div class="step">
-        <h3>Clinical Decision</h3>
-        <p>Prioritizing high-risk patients and selecting an evidence-based management plan.</p>
-      </div>
-    </div>
-    <p class="note">
-      AI-CDSS supports each stage by analysing multiple data points and highlighting patterns, but the final decision always remains with clinicians.
-    </p>
-  </section>
-
-  <!-- CHATBOT -->
-  <section id="chatbot" class="section">
-    <h2>AI Triage Assistant (Demo)</h2>
-    <p class="disclaimer">
-      Educational simulator only – not real medical advice. For any health concern, always consult a qualified clinician.
-    </p>
-    <div class="chat-layout">
-      <!-- Chat window -->
-      <div class="chat-window">
-        <div id="chat-messages" class="chat-messages">
-          <!-- Messages will be appended here -->
+  <!-- HERO -->
+  <section id="home" class="section hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="pill pill-primary">
+          <i class="ri-pulse-line"></i> Emergency-ready AI triage
+        </span>
+        <h1>Safer, faster triage and diagnosis with AI clinical decision support.</h1>
+        <p>
+          AICare CDSS helps clinicians spot high‑risk patients earlier, reduce diagnostic
+          errors, and standardise decisions under pressure in overcrowded emergency departments.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="openChatbot()">
+            <i class="ri-robot-2-line"></i> Try AI Triage Assistant
+          </button>
+          <a href="#overview" class="btn-ghost">
+            Learn how it works <i class="ri-arrow-right-line"></i>
+          </a>
         </div>
-        <div class="chat-input">
-          <input type="text" id="user-input" placeholder="Describe your symptoms or answer the question..." />
-          <button id="send-btn">Send</button>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">For demonstration only</span>
+            <span class="meta-value">Not real medical advice</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project</span>
+            <span class="meta-value">AI-based Clinical Decision Support</span>
+          </div>
         </div>
       </div>
+      <div class="hero-panel">
+        <div class="dashboard-card">
+          <div class="dash-header">
+            <span>Live Triage Queue</span>
+            <span class="status-pill"><span class="dot red"></span> High load</span>
+          </div>
+          <div class="queue">
+            <div class="queue-item high">
+              <div>
+                <p>Chest pain & breathlessness</p>
+                <span>Risk: High · Waiting 4 min</span>
+              </div>
+              <span class="badge high">RED</span>
+            </div>
+            <div class="queue-item medium">
+              <div>
+                <p>Fever & rash</p>
+                <span>Risk: Moderate · Waiting 16 min</span>
+              </div>
+              <span class="badge medium">AMBER</span>
+            </div>
+            <div class="queue-item low">
+              <div>
+                <p>Minor injury</p>
+                <span>Risk: Low · Waiting 23 min</span>
+              </div>
+              <span class="badge low">GREEN</span>
+            </div>
+          </div>
+          <div class="dash-stats">
+            <div>
+              <span class="stat-label">Avg triage time</span>
+              <span class="stat-value">2.1 min</span>
+            </div>
+            <div>
+              <span class="stat-label">AI flagged red‑alerts</span>
+              <span class="stat-value">+36%</span>
+            </div>
+          </div>
+        </div>
+        <div class="glow-orb"></div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Summary panel -->
-      <aside class="summary-panel">
-        <h3>AI Triage Summary</h3>
-        <p><strong>Risk Level:</strong> <span id="risk-level">–</span></p>
-        <p><strong>Possible Category:</strong> <span id="category">–</span></p>
-        <p><strong>Suggested Next Step:</strong></p>
-        <p id="next-step">Answer the questions in the chat to see a triage summary.</p>
-      </aside>
+  <!-- OVERVIEW -->
+  <section id="overview" class="section">
+    <header class="section-header">
+      <h2>Why hospitals need AI‑powered triage</h2>
+      <p>
+        Emergency departments operate far above capacity, clinicians handle huge data under
+        time pressure, and diagnostic errors remain a major source of harm. AI‑driven
+        decision support can stabilise this chaos and protect patients.
+      </p>
+    </header>
+    <div class="card-grid">
+      <article class="info-card">
+        <i class="ri-hospital-line card-icon"></i>
+        <h3>Overcrowded emergency rooms</h3>
+        <p>
+          Many emergency departments function at well above recommended capacity, creating
+          long waiting times and very short triage windows for each patient.
+        </p>
+      </article>
+      <article class="info-card">
+        <i class="ri-mental-health-line card-icon"></i>
+        <h3>Cognitive overload</h3>
+        <p>
+          Clinicians must synthesise hundreds of data points per patient while also handling
+          documentation, interruptions, and shifting priorities.
+        </p>
+      </article>
+      <article class="info-card">
+        <i class="ri-brain-line card-icon"></i>
+        <h3>AI clinical decision support</h3>
+        <p>
+          AI‑CDSS systems transform raw data into risk scores, alerts, and diagnostic
+          suggestions that help clinicians focus on the right patient at the right time.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow" class="section section-alt">
+    <header class="section-header">
+      <h2>From arrival to decision: the triage journey</h2>
+      <p>
+        AICare CDSS supports the full pathway from first contact to a safe disposition,
+        embedding AI at critical steps without replacing the clinician.
+      </p>
+    </header>
+    <div class="workflow-grid">
+      <div class="workflow-step">
+        <span class="step-number">01</span>
+        <h3>Arrival & pre‑triage</h3>
+        <p>
+          Patient demographics, presenting complaint, and vital signs are captured.
+        </p>
+        <ul>
+          <li>Automated intake form</li>
+          <li>Streaming vitals from monitors</li>
+          <li>Immediate red‑flag screening</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <span class="step-number">02</span>
+        <h3>Structured triage</h3>
+        <p>
+          AI models estimate risk level using symptoms, vitals, and history patterns.
+        </p>
+        <ul>
+          <li>Risk scoring & triage level suggestion</li>
+          <li>Highlighting conflicting data</li>
+          <li>Queue re‑ordering in real time</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <span class="step-number">03</span>
+        <h3>Diagnostic guidance</h3>
+        <p>
+          Differential diagnoses, suggested tests, and red‑flag conditions are surfaced.
+        </p>
+        <ul>
+          <li>Evidence‑linked suggestions</li>
+          <li>Test priority recommendations</li>
+          <li>Safety‑net discharge advice</li>
+        </ul>
+      </div>
+      <div class="workflow-step">
+        <span class="step-number">04</span>
+        <h3>Decision & documentation</h3>
+        <p>
+          Clinician chooses a plan; AI assists with notes and follow‑up reminders.
+        </p>
+        <ul>
+          <li>Auto‑generated triage summary</li>
+          <li>Alerts for missing critical data</li>
+          <li>Continuity handover view</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- TECHNOLOGY -->
-  <section id="tech" class="section">
-    <h2>AI Technologies Used</h2>
-    <p>
-      In a real deployment, AI-CDSS would combine multiple techniques to support clinicians in triage and diagnosis.
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>AI Technique</th>
-          <th>Role</th>
-          <th>Example Benefit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Machine learning</td>
-          <td>Triage risk scoring and outcome prediction</td>
-          <td>More accurate prioritization of high-risk patients.</td>
-        </tr>
-        <tr>
-          <td>Natural language processing</td>
-          <td>Understanding free-text symptom descriptions and notes</td>
-          <td>Less manual documentation, more clinician time with patients.</td>
-        </tr>
-        <tr>
-          <td>Predictive analytics</td>
-          <td>Early detection of deterioration (e.g., sepsis risk)</td>
-          <td>Earlier intervention and improved safety.</td>
-        </tr>
-        <tr>
-          <td>Computer vision</td>
-          <td>Analysing medical images (X-ray, CT, MRI)</td>
-          <td>Assisting radiologists in spotting subtle abnormalities.</td>
-        </tr>
-      </tbody>
-    </table>
+  <section id="technology" class="section">
+    <header class="section-header">
+      <h2>The AI engine behind AICare</h2>
+      <p>
+        Under the interface, specialised models collaborate to understand free‑text
+        symptoms, compute risk scores, and surface transparent clinical insights.
+      </p>
+    </header>
+
+    <div class="tech-layout">
+      <div class="tech-architecture">
+        <h3>Conceptual architecture</h3>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <span class="arch-label">Patient & clinician input</span>
+            <span class="arch-sub">Symptoms · vitals · history · notes</span>
+          </div>
+          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
+          <div class="arch-node">
+            <span class="arch-label">NLP layer</span>
+            <span class="arch-sub">Extracts entities & key clinical signals</span>
+          </div>
+          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
+          <div class="arch-node">
+            <span class="arch-label">Risk & diagnosis models</span>
+            <span class="arch-sub">Triage score · differentials · alerts</span>
+          </div>
+          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
+          <div class="arch-node">
+            <span class="arch-label">CDSS interface</span>
+            <span class="arch-sub">Dashboards · alerts · recommendations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-grid">
+        <article class="info-card">
+          <h3>Machine learning triage</h3>
+          <p>
+            Supervised models trained on historical ED encounters to predict acuity and
+            recommend triage levels based on multi‑variable patterns.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Natural language understanding</h3>
+          <p>
+            NLP converts free‑text symptom descriptions and notes into structured
+            features, identifying red‑flag phrases and context.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Predictive analytics</h3>
+          <p>
+            Time‑series models track patient trajectories and highlight early signs of
+            deterioration that are easy to miss during busy shifts.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Explainable recommendations</h3>
+          <p>
+            Each suggestion is linked to contributing factors so clinicians can see
+            <em>why</em> the system is raising an alert or recommending a pathway.
+          </p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2>About This Project</h2>
-    <p>
-      This website is part of an academic group assignment on using AI-based Clinical Decision Support
-      to enhance patient triage and diagnosis in hospitals.
-    </p>
-    <p>
-      Section 1 of the report is reflected in the Home and How It Works sections. The process map (Section 2)
-      can be embedded as an image here or in an additional section. Section 3 is represented by the Technology area.
-    </p>
-    <p>
-      Group Members: Add your names and student IDs here as required by the assignment guidelines.
-    </p>
+  <section id="about" class="section section-alt">
+    <header class="section-header">
+      <h2>Project & team</h2>
+      <p>
+        AICare CDSS is an academic proof‑of‑concept exploring how AI‑based clinical
+        decision support can enhance triage and diagnosis quality.
+      </p>
+    </header>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Assignment context</h3>
+        <p>
+          This project follows a three‑section structure: industry & process research,
+          detailed process mapping, and AI technology analysis, aligned with academic
+          requirements.
+        </p>
+        <p>
+          The website translates that research into an interactive experience for
+          clinicians, students, and stakeholders.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Team</h3>
+        <ul class="team-list">
+          <li><strong>Student 1</strong> – Domain & literature research</li>
+          <li><strong>Student 2</strong> – Process mapping & workflow design</li>
+          <li><strong>Student 3</strong> – AI technology and metrics</li>
+          <li><strong>Student 4</strong> – UX design & implementation</li>
+        </ul>
+        <p class="about-note">
+          Replace with your actual names and IDs to meet submission guidelines.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 AI Clinical Decision Support – Academic Demo</p>
+  <footer class="site-footer">
+    <p>© 2025 AICare Triage CDSS · Educational prototype only.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- FLOATING CHATBOT BUTTON -->
+  <button class="chat-fab" onclick="openChatbot()">
+    <i class="ri-message-3-line"></i>
+  </button>
+
+  <!-- CHATBOT POPUP -->
+  <div id="chatbot-overlay" class="chat-overlay" onclick="overlayClick(event)">
+    <div class="chat-popup">
+      <header class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-avatar">
+            <i class="ri-robot-2-line"></i>
+          </div>
+          <div>
+            <h3>AICare Triage Assistant</h3>
+            <p>Simulated triage conversation – not medical advice.</p>
+          </div>
+        </div>
+        <button class="chat-close" onclick="closeChatbot()">
+          <i class="ri-close-line"></i>
+        </button>
+      </header>
+
+      <main class="chat-main">
+        <section class="chat-pane">
+          <div id="chat-messages" class="chat-messages"></div>
+          <div id="quick-replies" class="quick-replies"></div>
+          <div class="chat-input-row">
+            <input id="user-input" type="text" placeholder="Type your answer here..." />
+            <button id="send-btn"><i class="ri-send-plane-2-line"></i></button>
+          </div>
+        </section>
+
+        <aside class="summary-pane">
+          <h4>Triage summary</h4>
+          <div class="summary-chip-row">
+            <span id="summary-risk" class="risk-chip risk-none">Risk: –</span>
+            <span id="summary-step" class="step-chip">Step 1 of 4</span>
+          </div>
+          <div class="summary-card">
+            <h5>Patient profile</h5>
+            <ul>
+              <li><strong>Age group:</strong> <span id="sum-age">–</span></li>
+              <li><strong>Main complaint:</strong> <span id="sum-complaint">–</span></li>
+              <li><strong>Red‑flag symptoms:</strong> <span id="sum-redflags">–</span></li>
+              <li><strong>Severity:</strong> <span id="sum-severity">–</span></li>
+            </ul>
+          </div>
+          <div class="summary-card">
+            <h5>AI insight (demo)</h5>
+            <p id="summary-category">Possible category: –</p>
+            <p id="summary-next">Next step suggestion will appear once the triage is complete.</p>
+            <p class="disclaimer-text">
+              Always consult a qualified clinician. This assistant is for learning only and
+              cannot diagnose or treat any condition.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
 </body>
 </html>
