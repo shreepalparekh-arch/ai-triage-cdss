@@ -2,273 +2,268 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Triage & Diagnosis CDSS</title>
+  <title>Lifecare Hospital – Advanced Multispeciality Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-8vzZ9V3R7XyL0Dm8+k7Xz+2pW5VI4yF6vMLl3wHz5cH7A9m0nDVxtku8F+WbhcHkCe+GQyGQ4b2cc1Uo5fPzMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- NAVBAR -->
   <header class="site-header">
     <div class="nav-inner">
-      <div class="brand">
+      <a href="index.html" class="brand">
         <div class="brand-logo"></div>
         <div>
-          <div class="brand-title">AICare Triage CDSS</div>
-          <div class="brand-tagline">AI-powered clinical decision support</div>
+          <div class="brand-title">Lifecare Hospital</div>
+          <div class="brand-tagline">Advanced Multispeciality • AI‑enabled triage</div>
         </div>
-      </div>
+      </a>
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#overview">Overview</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#technology">Technology</a>
-        <a href="#about">About</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Departments</a>
+        <a href="index.html#doctors">Doctors</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="index.html#ai-demo">AI Triage Demo</a>
+        <a href="index.html#about">About</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="home" class="section hero">
-    <div class="hero-inner">
+  <section id="home" class="section hero hero-light">
+    <div class="hero-inner hero-two-col">
       <div class="hero-text">
-        <span class="pill pill-primary">
-          <i class="ri-pulse-line"></i> Emergency-ready AI triage
+        <span className="pill pill-primary">
+          <i class="ri-hospital-line"></i> 24x7 Emergency & Critical Care
         </span>
-        <h1>Safer, faster triage and diagnosis with AI clinical decision support.</h1>
+        <h1>Compassionate care powered by intelligent clinical decision support.</h1>
         <p>
-          AICare CDSS helps clinicians spot high‑risk patients earlier, reduce diagnostic
-          errors, and standardise decisions under pressure in overcrowded emergency departments.
+          Lifecare Hospital brings together expert clinicians, advanced diagnostics, and
+          AI‑assisted triage to deliver safer, faster decisions when every second matters.
         </p>
         <div class="hero-actions">
-          <button class="btn-primary" onclick="openChatbot()">
-            <i class="ri-robot-2-line"></i> Try AI Triage Assistant
-          </button>
-          <a href="#overview" class="btn-ghost">
-            Learn how it works <i class="ri-arrow-right-line"></i>
+          <a href="appointments.html" class="btn-primary">
+            <i class="ri-calendar-check-line"></i> Book Appointment
           </a>
+          <button class="btn-outline" onclick="openChatbot()">
+            <i class="ri-robot-2-line"></i> Ask Lifecare Assistant
+          </button>
         </div>
-        <div class="hero-meta">
-          <div class="meta-item">
-            <span class="meta-label">For demonstration only</span>
-            <span class="meta-value">Not real medical advice</span>
+        <div class="hero-quick-links">
+          <div class="quick-card">
+            <i class="ri-aed-line"></i>
+            <div>
+              <p class="qc-title">Emergency</p>
+              <p class="qc-sub">Ambulance & ER · 24x7</p>
+            </div>
           </div>
-          <div class="meta-item">
-            <span class="meta-label">Project</span>
-            <span class="meta-value">AI-based Clinical Decision Support</span>
+          <div class="quick-card">
+            <i class="ri-test-tube-line"></i>
+            <div>
+              <p class="qc-title">Diagnostics</p>
+              <p class="qc-sub">Pathology · Imaging</p>
+            </div>
+          </div>
+          <div class="quick-card">
+            <i class="ri-chat-3-line"></i>
+            <div>
+              <p class="qc-title">Online Consult</p>
+              <p class="qc-sub">Video visits with experts</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="hero-panel">
-        <div class="dashboard-card">
-          <div class="dash-header">
-            <span>Live Triage Queue</span>
-            <span class="status-pill"><span class="dot red"></span> High load</span>
-          </div>
-          <div class="queue">
-            <div class="queue-item high">
-              <div>
-                <p>Chest pain & breathlessness</p>
-                <span>Risk: High · Waiting 4 min</span>
-              </div>
-              <span class="badge high">RED</span>
-            </div>
-            <div class="queue-item medium">
-              <div>
-                <p>Fever & rash</p>
-                <span>Risk: Moderate · Waiting 16 min</span>
-              </div>
-              <span class="badge medium">AMBER</span>
-            </div>
-            <div class="queue-item low">
-              <div>
-                <p>Minor injury</p>
-                <span>Risk: Low · Waiting 23 min</span>
-              </div>
-              <span class="badge low">GREEN</span>
-            </div>
-          </div>
-          <div class="dash-stats">
+
+      <div class="hero-panel hero-whitecard">
+        <div class="hp-header">
+          <span>Today at Lifecare</span>
+          <span class="hp-tag">Smart triage dashboard</span>
+        </div>
+        <div class="hp-queue">
+          <div class="hp-row">
             <div>
-              <span class="stat-label">Avg triage time</span>
-              <span class="stat-value">2.1 min</span>
+              <p>Chest pain & breathlessness</p>
+              <span>AI risk: High · sent to Cardiology</span>
             </div>
+            <span class="badge high">RED</span>
+          </div>
+          <div class="hp-row">
             <div>
-              <span class="stat-label">AI flagged red‑alerts</span>
-              <span class="stat-value">+36%</span>
+              <p>High fever & rash</p>
+              <span>AI risk: Moderate · under observation</span>
             </div>
+            <span class="badge medium">AMBER</span>
+          </div>
+          <div class="hp-row">
+            <div>
+              <p>Minor ankle injury</p>
+              <span>AI risk: Low · fast track clinic</span>
+            </div>
+            <span class="badge low">GREEN</span>
           </div>
         </div>
-        <div class="glow-orb"></div>
+        <div class="hp-stats">
+          <div>
+            <p class="stat-label">Average triage time</p>
+            <p class="stat-value">2.0 min</p>
+          </div>
+          <div>
+            <p class="stat-label">Critical cases flagged</p>
+            <p class="stat-value">+35%</p>
+          </div>
+        </div>
+        <p class="hp-footnote">
+          Data shown is simulated to demonstrate how AI‑based Clinical Decision Support
+          can help prioritise patients in busy emergency departments.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- OVERVIEW -->
-  <section id="overview" class="section">
+  <!-- SERVICES -->
+  <section id="services" class="section">
     <header class="section-header">
-      <h2>Why hospitals need AI‑powered triage</h2>
+      <h2>Centres of excellence at Lifecare Hospital</h2>
       <p>
-        Emergency departments operate far above capacity, clinicians handle huge data under
-        time pressure, and diagnostic errors remain a major source of harm. AI‑driven
-        decision support can stabilise this chaos and protect patients.
+        Comprehensive, coordinated care across key specialities with round‑the‑clock
+        support and advanced diagnostics.
       </p>
     </header>
     <div class="card-grid">
-      <article class="info-card">
-        <i class="ri-hospital-line card-icon"></i>
-        <h3>Overcrowded emergency rooms</h3>
+      <article class="service-card">
+        <i class="ri-heart-pulse-line card-icon"></i>
+        <h3>Cardiology & Cardiac Care</h3>
         <p>
-          Many emergency departments function at well above recommended capacity, creating
-          long waiting times and very short triage windows for each patient.
+          Early detection, advanced interventions, and structured follow‑up for heart
+          disease, supported by AI‑assisted risk stratification in the emergency room.
         </p>
       </article>
-      <article class="info-card">
-        <i class="ri-mental-health-line card-icon"></i>
-        <h3>Cognitive overload</h3>
+      <article class="service-card">
+        <i class="ri-community-line card-icon"></i>
+        <h3>Emergency & Trauma</h3>
         <p>
-          Clinicians must synthesise hundreds of data points per patient while also handling
-          documentation, interruptions, and shifting priorities.
+          24x7 trauma, stroke, and critical care pathways with rapid triage and priority
+          routing using AI‑enhanced clinical decision support.
         </p>
       </article>
-      <article class="info-card">
-        <i class="ri-brain-line card-icon"></i>
-        <h3>AI clinical decision support</h3>
+      <article class="service-card">
+        <i class="ri-bone-line card-icon"></i>
+        <h3>Orthopaedics & Joint Care</h3>
         <p>
-          AI‑CDSS systems transform raw data into risk scores, alerts, and diagnostic
-          suggestions that help clinicians focus on the right patient at the right time.
+          Minimally invasive surgery, sports injury management, and personalised
+          rehabilitation plans for bones, joints, and spine.
+        </p>
+      </article>
+      <article class="service-card">
+        <i class="ri-women-line card-icon"></i>
+        <h3>Women & Child Health</h3>
+        <p>
+          Maternity, neonatal, and paediatric services focused on safety, comfort, and
+          timely escalation for high‑risk pregnancies and newborns.
+        </p>
+      </article>
+      <article class="service-card">
+        <i class="ri-microscope-line card-icon"></i>
+        <h3>Diagnostics & Imaging</h3>
+        <p>
+          High‑resolution imaging and lab diagnostics integrated with AI‑based
+          interpretation support for consistent, reliable results.
+        </p>
+      </article>
+      <article class="service-card">
+        <i class="ri-stethoscope-line card-icon"></i>
+        <h3>Internal Medicine</h3>
+        <p>
+          Comprehensive adult medicine with a strong focus on chronic disease
+          management, preventive check‑ups, and teleconsults.
         </p>
       </article>
     </div>
   </section>
 
-  <!-- WORKFLOW -->
-  <section id="workflow" class="section section-alt">
+  <!-- DOCTORS -->
+  <section id="doctors" class="section section-alt">
     <header class="section-header">
-      <h2>From arrival to decision: the triage journey</h2>
+      <h2>Meet our care team</h2>
       <p>
-        AICare CDSS supports the full pathway from first contact to a safe disposition,
-        embedding AI at critical steps without replacing the clinician.
+        A multidisciplinary team of specialists working together, supported by digital
+        health tools, to deliver precise, personalised care.
       </p>
     </header>
-    <div class="workflow-grid">
-      <div class="workflow-step">
-        <span class="step-number">01</span>
-        <h3>Arrival & pre‑triage</h3>
-        <p>
-          Patient demographics, presenting complaint, and vital signs are captured.
-        </p>
-        <ul>
-          <li>Automated intake form</li>
-          <li>Streaming vitals from monitors</li>
-          <li>Immediate red‑flag screening</li>
-        </ul>
-      </div>
-      <div class="workflow-step">
-        <span class="step-number">02</span>
-        <h3>Structured triage</h3>
-        <p>
-          AI models estimate risk level using symptoms, vitals, and history patterns.
-        </p>
-        <ul>
-          <li>Risk scoring & triage level suggestion</li>
-          <li>Highlighting conflicting data</li>
-          <li>Queue re‑ordering in real time</li>
-        </ul>
-      </div>
-      <div class="workflow-step">
-        <span class="step-number">03</span>
-        <h3>Diagnostic guidance</h3>
-        <p>
-          Differential diagnoses, suggested tests, and red‑flag conditions are surfaced.
-        </p>
-        <ul>
-          <li>Evidence‑linked suggestions</li>
-          <li>Test priority recommendations</li>
-          <li>Safety‑net discharge advice</li>
-        </ul>
-      </div>
-      <div class="workflow-step">
-        <span class="step-number">04</span>
-        <h3>Decision & documentation</h3>
-        <p>
-          Clinician chooses a plan; AI assists with notes and follow‑up reminders.
-        </p>
-        <ul>
-          <li>Auto‑generated triage summary</li>
-          <li>Alerts for missing critical data</li>
-          <li>Continuity handover view</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY -->
-  <section id="technology" class="section">
-    <header class="section-header">
-      <h2>The AI engine behind AICare</h2>
-      <p>
-        Under the interface, specialised models collaborate to understand free‑text
-        symptoms, compute risk scores, and surface transparent clinical insights.
-      </p>
-    </header>
-
-    <div class="tech-layout">
-      <div class="tech-architecture">
-        <h3>Conceptual architecture</h3>
-        <div class="arch-flow">
-          <div class="arch-node">
-            <span class="arch-label">Patient & clinician input</span>
-            <span class="arch-sub">Symptoms · vitals · history · notes</span>
-          </div>
-          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
-          <div class="arch-node">
-            <span class="arch-label">NLP layer</span>
-            <span class="arch-sub">Extracts entities & key clinical signals</span>
-          </div>
-          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
-          <div class="arch-node">
-            <span class="arch-label">Risk & diagnosis models</span>
-            <span class="arch-sub">Triage score · differentials · alerts</span>
-          </div>
-          <div class="arch-arrow"><i class="ri-arrow-right-line"></i></div>
-          <div class="arch-node">
-            <span class="arch-label">CDSS interface</span>
-            <span class="arch-sub">Dashboards · alerts · recommendations</span>
-          </div>
+    <div class="doctor-grid">
+      <article class="doctor-card">
+        <div class="avatar-placeholder">
+          <i class="ri-user-heart-line"></i>
         </div>
-      </div>
+        <h3>Dr. A. Consultant</h3>
+        <p class="doc-spec">Senior Cardiologist</p>
+        <p class="doc-meta">Interventional cardiology · 15+ years</p>
+        <a href="appointments.html" class="btn-sm">Book slot</a>
+      </article>
+      <article class="doctor-card">
+        <div class="avatar-placeholder">
+          <i class="ri-user-heart-line"></i>
+        </div>
+        <h3>Dr. B. Specialist</h3>
+        <p class="doc-spec">Emergency Medicine</p>
+        <p class="doc-meta">Trauma & critical care · 10+ years</p>
+        <a href="appointments.html" class="btn-sm">Book slot</a>
+      </article>
+      <article class="doctor-card">
+        <div class="avatar-placeholder">
+          <i class="ri-user-smile-line"></i>
+        </div>
+        <h3>Dr. C. Expert</h3>
+        <p class="doc-spec">Orthopaedics</p>
+        <p class="doc-meta">Joint replacement · Sports injuries</p>
+        <a href="appointments.html" class="btn-sm">Book slot</a>
+      </article>
+      <article class="doctor-card">
+        <div class="avatar-placeholder">
+          <i class="ri-user-smile-line"></i>
+        </div>
+        <h3>Dr. D. Consultant</h3>
+        <p class="doc-spec">Obstetrics & Gynaecology</p>
+        <p class="doc-meta">High‑risk pregnancy care</p>
+        <a href="appointments.html" class="btn-sm">Book slot</a>
+      </article>
+    </div>
+  </section>
 
-      <div class="tech-grid">
-        <article class="info-card">
-          <h3>Machine learning triage</h3>
-          <p>
-            Supervised models trained on historical ED encounters to predict acuity and
-            recommend triage levels based on multi‑variable patterns.
-          </p>
-        </article>
-        <article class="info-card">
-          <h3>Natural language understanding</h3>
-          <p>
-            NLP converts free‑text symptom descriptions and notes into structured
-            features, identifying red‑flag phrases and context.
-          </p>
-        </article>
-        <article class="info-card">
-          <h3>Predictive analytics</h3>
-          <p>
-            Time‑series models track patient trajectories and highlight early signs of
-            deterioration that are easy to miss during busy shifts.
-          </p>
-        </article>
-        <article class="info-card">
-          <h3>Explainable recommendations</h3>
-          <p>
-            Each suggestion is linked to contributing factors so clinicians can see
-            <em>why</em> the system is raising an alert or recommending a pathway.
-          </p>
-        </article>
+  <!-- AI DEMO -->
+  <section id="ai-demo" class="section">
+    <header class="section-header">
+      <h2>AI‑based triage & diagnosis demo</h2>
+      <p>
+        Lifecare Hospital is exploring AI‑based Clinical Decision Support to assist
+        clinicians in triage and early diagnosis. Experience a safe, educational demo of
+        our Lifecare Assistant.
+      </p>
+    </header>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <h3>How the demo works</h3>
+        <ol>
+          <li>Answer a short set of questions about age, main symptom, and severity.</li>
+          <li>The assistant estimates a risk band and possible symptom category.</li>
+          <li>You receive general guidance on whether an urgent visit is recommended.</li>
+        </ol>
+        <p class="ai-note">
+          The assistant does not store real health data and cannot diagnose or treat. It
+          is designed only to illustrate how AI‑CDSS can support clinicians.
+        </p>
+        <button class="btn-primary" onclick="openChatbot()">
+          Start Lifecare Assistant
+        </button>
+      </div>
+      <div class="ai-card">
+        <h3>AI inside Lifecare (concept)</h3>
+        <ul>
+          <li>Machine learning models that score triage priority based on patterns.</li>
+          <li>NLP to interpret free‑text symptom descriptions and notes.</li>
+          <li>Predictive analytics to highlight early risk of deterioration.</li>
+          <li>Explainable alerts so clinicians see why a case is marked high‑risk.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -276,50 +271,53 @@
   <!-- ABOUT -->
   <section id="about" class="section section-alt">
     <header class="section-header">
-      <h2>Project & team</h2>
+      <h2>About this project</h2>
       <p>
-        AICare CDSS is an academic proof‑of‑concept exploring how AI‑based clinical
-        decision support can enhance triage and diagnosis quality.
+        This Lifecare Hospital website and AI triage demo have been created as part of an
+        academic project on AI‑based Clinical Decision Support Systems for patient triage
+        and diagnosis.
       </p>
     </header>
     <div class="about-grid">
       <div class="about-card">
-        <h3>Assignment context</h3>
+        <h3>Project structure</h3>
         <p>
-          This project follows a three‑section structure: industry & process research,
-          detailed process mapping, and AI technology analysis, aligned with academic
-          requirements.
+          The work covers healthcare industry context, the triage‑diagnosis process, and
+          how AI technologies such as machine learning and NLP can improve outcomes.
         </p>
         <p>
-          The website translates that research into an interactive experience for
-          clinicians, students, and stakeholders.
+          This website translates that research into an experience similar to leading
+          hospital platforms while emphasising that the AI features here are purely
+          demonstrative.
         </p>
       </div>
       <div class="about-card">
-        <h3>Team</h3>
+        <h3>Team Lifecare</h3>
         <ul class="team-list">
-          <li><strong>Student 1</strong> – Domain & literature research</li>
-          <li><strong>Student 2</strong> – Process mapping & workflow design</li>
-          <li><strong>Student 3</strong> – AI technology and metrics</li>
-          <li><strong>Student 4</strong> – UX design & implementation</li>
+          <li><strong>Shreepal Parekh</strong></li>
+          <li><strong>Disha Pornikar</strong></li>
+          <li><strong>Akriti Agnihotri</strong></li>
+          <li><strong>Tanish Rane</strong></li>
+          <li><strong>Simran Begrajka</strong></li>
+          <li><strong>Arnab Panda</strong></li>
         </ul>
         <p class="about-note">
-          Replace with your actual names and IDs to meet submission guidelines.
+          Guided by course faculty, this project explores responsible, human‑in‑the‑loop
+          AI for clinical decision support in emergency care.
         </p>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
-    <p>© 2025 AICare Triage CDSS · Educational prototype only.</p>
+    <p>© 2025 Lifecare Hospital · Educational prototype only · Not for real medical use.</p>
   </footer>
 
-  <!-- FLOATING CHATBOT BUTTON -->
+  <!-- FLOATING CHATBOT BUTTON & POPUP (included on every page) -->
   <button class="chat-fab" onclick="openChatbot()">
     <i class="ri-message-3-line"></i>
   </button>
 
-  <!-- CHATBOT POPUP -->
   <div id="chatbot-overlay" class="chat-overlay" onclick="overlayClick(event)">
     <div class="chat-popup">
       <header class="chat-header">
@@ -328,25 +326,23 @@
             <i class="ri-robot-2-line"></i>
           </div>
           <div>
-            <h3>AICare Triage Assistant</h3>
-            <p>Simulated triage conversation – not medical advice.</p>
+            <h3>Lifecare Assistant</h3>
+            <p>Symptom triage & hospital help · Demo only.</p>
           </div>
         </div>
         <button class="chat-close" onclick="closeChatbot()">
           <i class="ri-close-line"></i>
         </button>
       </header>
-
       <main class="chat-main">
         <section class="chat-pane">
           <div id="chat-messages" class="chat-messages"></div>
           <div id="quick-replies" class="quick-replies"></div>
           <div class="chat-input-row">
-            <input id="user-input" type="text" placeholder="Type your answer here..." />
+            <input id="user-input" type="text" placeholder="Type your answer or question..." />
             <button id="send-btn"><i class="ri-send-plane-2-line"></i></button>
           </div>
         </section>
-
         <aside class="summary-pane">
           <h4>Triage summary</h4>
           <div class="summary-chip-row">
@@ -363,12 +359,12 @@
             </ul>
           </div>
           <div class="summary-card">
-            <h5>AI insight (demo)</h5>
+            <h5>Lifecare insight (demo)</h5>
             <p id="summary-category">Possible category: –</p>
-            <p id="summary-next">Next step suggestion will appear once the triage is complete.</p>
+            <p id="summary-next">Complete the questions to see a suggested next step.</p>
             <p class="disclaimer-text">
-              Always consult a qualified clinician. This assistant is for learning only and
-              cannot diagnose or treat any condition.
+              For any real emergency, contact Lifecare Emergency or your nearest hospital
+              immediately. This assistant cannot diagnose, treat, or handle emergencies.
             </p>
           </div>
         </aside>
@@ -376,6 +372,6 @@
     </div>
   </div>
 
-  <script src="chatbot.js"></script>
+  <script src="lifecare-chatbot.js"></script>
 </body>
 </html>
